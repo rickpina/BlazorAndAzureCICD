@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35707.178 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAndAzureCICD", "BlazorAndAzureCICD\BlazorAndAzureCICD.csproj", "{ECCD8B55-B041-4013-B643-A5FC297BD753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorAndAzureCICD.Client", "BlazorAndAzureCICD.Client\BlazorAndAzureCICD.Client.csproj", "{43C04E2C-FD1A-4D3E-AEB3-0B743F5D55DB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{ECCD8B55-B041-4013-B643-A5FC297BD753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECCD8B55-B041-4013-B643-A5FC297BD753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECCD8B55-B041-4013-B643-A5FC297BD753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECCD8B55-B041-4013-B643-A5FC297BD753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43C04E2C-FD1A-4D3E-AEB3-0B743F5D55DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43C04E2C-FD1A-4D3E-AEB3-0B743F5D55DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43C04E2C-FD1A-4D3E-AEB3-0B743F5D55DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43C04E2C-FD1A-4D3E-AEB3-0B743F5D55DB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
