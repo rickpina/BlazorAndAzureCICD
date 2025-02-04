@@ -1,0 +1,56 @@
+﻿@using BlazorAndAzureCICD.Models
+@using Microsoft.AspNetCore.Components.QuickGrid
+@rendermode InteractiveServer
+@attribute [StreamRendering]
+
+@inject HttpClient HttpClient
+
+<PageTitle>Data Grid</PageTitle>
+
+<h1 class="mb-4 text-left">Person Grid</h1>
+
+@if (people == null)
+{
+    <div class="d-flex justify-content-center align-items-center my-5">
+        <p><em>Loading...</em></p>
+    </div>
+}
+else
+{
+    <div class="table-responsive border rounded shadow-sm p-3 bg-light">
+        <QuickGrid Items="people" Pagination="@pagination" Class="table table-striped table-hover">
+            <PropertyColumn Property="@(p => p.Id)" Title="ID" Sortable="true" />
+            <PropertyColumn Property="@(p => p.FirstName)" Title="First Name" Sortable="true" />
+            <PropertyColumn Property="@(p => p.LastName)" Title="Last Name" Sortable="true" />
+        </QuickGrid>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <Paginator State="@pagination" />
+    </div>
+}
+
+
+@code {
+    
+    PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
+    private IQueryable<Person> people;
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var response = await HttpClient.GetFromJsonAsync<List<Person>>("/person");
+            if(response != null)
+            {
+                people = response.AsQueryable<Person>();
+            }
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"There was an error getting data. {ex.Message} {ex.StackTrace}");
+        }
+
+    }
+
+}
