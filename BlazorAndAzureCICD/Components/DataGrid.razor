@@ -32,7 +32,7 @@ else
 
 
 @code {
-    
+
     PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
     private IQueryable<Person> people;
 
@@ -43,7 +43,21 @@ else
             var response = await HttpClient.GetFromJsonAsync<List<Person>>("/person");
             if(response != null)
             {
-                people = response.AsQueryable<Person>();
+                var personData = response.AsQueryable<Person>();
+
+                if(personData == null)
+                {
+                    var newlist = new List<Person>()
+                    { new Person { Id = 1, FirstName = "Not", LastName = "Found" } };
+
+                    personData = newlist.AsQueryable();
+                }
+                else
+                {
+                    people = personData;
+                }
+             
+
             }
         }
         catch(Exception ex)
