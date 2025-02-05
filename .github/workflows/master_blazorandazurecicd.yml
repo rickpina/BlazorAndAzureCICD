@@ -26,8 +26,8 @@ jobs:
       - name: Install MSBuild
         uses: microsoft/setup-msbuild@v1.1
 
-      - name: Install SSDT Build Tools
-        run: choco install sqlserver-ssdt -y
+      # - name: Install SSDT Build Tools
+      #   run: choco install sqlserver-ssdt -y
 
       - name: Restore NuGet Packages
         run: nuget restore BlazorAndAzureCICD.sln
