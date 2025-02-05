@@ -12,6 +12,8 @@ builder.Services.AddRazorComponents()
 
 var apiBaseUrl = "https://localhost:7281/";
 
+builder.Configuration.AddUserSecrets<Program>();
+
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(apiBaseUrl) });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
