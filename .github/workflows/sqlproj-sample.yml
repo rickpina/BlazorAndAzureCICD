@@ -17,4 +17,4 @@ jobs:
         dotnet-version: 9.0.x
 
     - name: Build
-      run: dotnet build MyDatabaseProject.sqlproj
+      run: dotnet build SQLProject.sqlproj
