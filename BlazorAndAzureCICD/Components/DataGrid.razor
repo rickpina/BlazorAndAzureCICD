@@ -34,7 +34,7 @@ else
 @code {
 
     PaginationState pagination = new PaginationState { ItemsPerPage = 5 };
-    private IQueryable<Person> people;
+    private IQueryable<Person> people = Enumerable.Empty<Person>().AsQueryable();
 
     protected override async Task OnInitializedAsync()
     {
@@ -50,7 +50,7 @@ else
                     var newlist = new List<Person>()
                     { new Person { Id = 1, FirstName = "Not", LastName = "Found" } };
 
-                    personData = newlist.AsQueryable();
+                    people = newlist.AsQueryable();
                 }
                 else
                 {
